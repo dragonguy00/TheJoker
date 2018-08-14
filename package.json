@@ -1,0 +1,16 @@
+{
+  "name": "customcommandsbotthejoker",
+  "version": "1.0.0",
+  "description": "The ArkhamNetwork Custom Commands Bot.",
+  "main": "index.js",
+  "dependencies": {
+    "discord.js": "^11.4.0",
+    "init": "^0.1.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "dragonguy00",
+  "license": "ISC"
+}
