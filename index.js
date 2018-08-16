@@ -87,7 +87,8 @@ let user = message.guild.member(message.author);
   .setTitle(`Faction Leader Role Request`)
   .setColor("#9017a5")
   .setAuthor(`${message.author.username}`, message.author.displayAvatarURL)
-  .setDescription(`The following is a request for the Faction Leader role. Before approving the request, ensure they meet the requirements:\n\n __The leader of an Established Faction:__\n❖ Multiple active members\n❖ Have a faction discord server\n❖ Playing the current map\n\n If the above requirements are met, add another ✅ below, and run the following command so the user is PM'd via the bot saying they have been given the roles: *,addflrole @user*`)
+  .setDescription(`The following is a request for the Faction Leader role. Before approving the request, ensure they meet the requirements:\n\n __The leader of an Established Faction:__\n❖ Multiple active members\n❖ Have a faction discord server\n❖ Playing the current map\n\n If the above requirements are met, add another ✅ below. If you add this emoji, the user will automatically be PM'd by the bot saying that they have gotten the role and it will be given to them too. Adding another ❌ below, will result in the bot PM'ing the user, saying they have been unsuccesful in receiving the role.`)
+  //and run the following command so the user is PM'd via the bot saying they have been given the roles: *,addflrole @user*
   .setThumbnail("https://i.imgur.com/Kv9ZcHX.png")
   .addField("Submitted By", `${message.author}`)
   .addField("Faction Name", faction)
