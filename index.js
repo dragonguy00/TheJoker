@@ -235,4 +235,4 @@ if (cmd === `${prefix}formshelp`) {
 
 });
 
-client.login(token);
+bot.login(token);
