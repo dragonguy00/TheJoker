@@ -107,8 +107,6 @@ let fLeaderRole = message.guild.roles.find(`name`, "Faction Leader");
 
 
 bot.on('messageReactionAdd', (reaction, user) => {
-
-  let user = message.guild.member(message.author);
   
   if(user === message.author.bot) return;
   
@@ -128,8 +126,6 @@ bot.on('messageReactionAdd', (reaction, user) => {
 });
 
 bot.on('messageReactionRemove', (reaction, user) => {
-
-  let user = message.guild.member(message.author);
   
     if(reaction.emoji.name === "✅") {
 
