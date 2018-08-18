@@ -1,17 +1,16 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
 const token = process.env.token;
-const client =  new Discord.Client;
-//const bot = new Discord.Client({disableEveryone: true});
+const bot = new Discord.Client({disableEveryone: true});
 
-client.on("ready", async () => {
+bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
 
   bot.user.setActivity("ArkhamKnight", {type: "Playing"});
 
 });
 
-client.on("message", async message => {
+bot.on("message", async message => {
   if(message.author.bot) return;
   if(message.channel.type === "dm") return;
 
@@ -107,7 +106,7 @@ let fLeaderRole = message.guild.roles.find(`name`, "Faction Leader");
   await msg2.react(bot.emojis.get("455268058643038208"))
 
 
-client.on('messageReactionAdd', (reaction, user) => {
+bot.on('messageReactionAdd', (reaction, user) => {
 
     if(reaction.emoji.name === "✅") {
 
@@ -124,7 +123,7 @@ client.on('messageReactionAdd', (reaction, user) => {
     }
 });
 
-client.on('messageReactionRemove', (reaction, user) => {
+bot.on('messageReactionRemove', (reaction, user) => {
 
     if(reaction.emoji.name === "✅") {
 
