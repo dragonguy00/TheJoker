@@ -69,13 +69,16 @@ let fLeaderRole = message.guild.roles.find(`name`, "Faction Leader");
   }
   else {
   let ign = args[0];
-  if(!ign) return message.channel.send(`<@${message.author.id}>, you didn't state your IGN!"`);
+    message.delete().catch(O_o=>{});
+  if(!ign) return message.channel.send(`<@${message.author.id}>, you didn't state your IGN while attempting to submit a Faction Leader Role request!`);
 
   let faction = args[1];
-  if(!faction) return message.channel.send(`<@${message.author.id}>, you didn't state your Faction!"`);
+    message.delete().catch(O_o=>{});
+  if(!faction) return message.channel.send(`<@${message.author.id}>, you didn't state your Faction while attempting to submit a Faction Leader Role request!`);
 
   let fDiscord = args[2];
-  if(!fDiscord) return message.channel.send(`<@${message.author.id}>, you didn't state your Faction Discord!"`);
+    message.delete().catch(O_o=>{}); 
+  if(!fDiscord) return message.channel.send(`<@${message.author.id}>, you didn't state your Faction Discord while attempting to submit a Faction Leader Role request!`);
 
   let user = message.guild.member(message.author);
 
