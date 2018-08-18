@@ -112,7 +112,7 @@ bot.on('messageReactionAdd', (reaction, user) => {
   
     if(reaction.emoji.name === "✅") {
 
-      await(user.addRole(fLeaderRole.id));
+      user.addRole(fLeaderRole.id);
 
         try{
           return message.author.send(`Congratulations, you have been given the ${fLeaderRole.name} role on the ArkhamNetwork Discord Server!`);
@@ -129,7 +129,7 @@ bot.on('messageReactionRemove', (reaction, user) => {
   
     if(reaction.emoji.name === "✅") {
 
-      await(user.removeRole(fLeaderRole.id));
+      user.removeRole(fLeaderRole.id);
 
     }
     else if (reaction.emoji.name === "❌") {
