@@ -62,7 +62,6 @@ if (cmd === `${prefix}fleader`) {
 let recruitmentchannel = message.guild.channels.find(`name`, "faction-recruitment")
 let recruitmentRchannel = message.guild.channels.find(`name`, "faction-leader-requests")
 let fLeaderRole = message.guild.roles.find(`name`, "Faction Leader");
-let user = message.guild.member(message.author);
 
   if(message.member.roles.find(`name`, "Faction Leader")) {
     message.delete().catch(O_o=>{});
