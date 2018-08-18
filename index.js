@@ -70,15 +70,15 @@ let fLeaderRole = message.guild.roles.find(`name`, "Faction Leader");
   else {
   let ign = args[0];
     message.delete().catch(O_o=>{});
-  if(!ign) return message.channel.send(`<@${message.author.id}>, you didn't state all the information required when submiting a Faction Leader Role request! Esure you following the command: \`${prefix}fleader <ign> <faction name> <faction discord>`\.`);
+  if(!ign) return message.channel.send(`<@${message.author.id}>, you didn't state all the information required when submiting a Faction Leader Role request! Esure you following the command: ${prefix}fleader <ign> <faction name> <faction discord>.`);
 
   let faction = args[1];
     message.delete().catch(O_o=>{});
-  if(!faction) return message.channel.send(`<@${message.author.id}>, you didn't state all the information required when submiting a Faction Leader Role request! Esure you following the command: \`${prefix}\fleader <ign> <faction name> <faction discord>`\.`);
+  if(!faction) return message.channel.send(`<@${message.author.id}>, you didn't state all the information required when submiting a Faction Leader Role request! Esure you following the command: ${prefix}\fleader <ign> <faction name> <faction discord>.`);
 
   let fDiscord = args[2];
     message.delete().catch(O_o=>{}); 
-  if(!fDiscord) return message.channel.send(`<@${message.author.id}>, you didn't state all the information required when submiting a Faction Leader Role request! Esure you following the command: \`${prefix}fleader <ign> <faction name> <faction discord>`\.`);
+  if(!fDiscord) return message.channel.send(`<@${message.author.id}>, you didn't state all the information required when submiting a Faction Leader Role request! Esure you following the command: ${prefix}fleader <ign> <faction name> <faction discord>.`);
 
   let user = message.guild.member(message.author);
 
