@@ -108,9 +108,11 @@ let fLeaderRole = message.guild.roles.find(`name`, "Faction Leader");
 
 bot.on('messageReactionAdd', (reaction, user) => {
 
+  if(message.author.bot) return;
+  
     if(reaction.emoji.name === "✅") {
 
-      message.member.addRole(fLeaderRole.id);
+      await message.member.addRole(fLeaderRole.id);
 
         try{
           return message.author.send(`Congratulations, you have been given the ${fLeaderRole.name} role on the ArkhamNetwork Discord Server!`);
@@ -127,7 +129,7 @@ bot.on('messageReactionRemove', (reaction, user) => {
 
     if(reaction.emoji.name === "✅") {
 
-      message.member.removeRole(fLeaderRole.id);
+      await message.member.removeRole(fLeaderRole.id);
 
     }
     else if (reaction.emoji.name === "❌") {
