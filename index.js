@@ -1,7 +1,8 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
 const token = process.env.token;
-const bot = new Discord.Client({disableEveryone: true});
+const bot = new Discord.Client();
+//const bot = new Discord.Client({disableEveryone: true});
 
 bot.on("ready", async () => {
   console.log(`${bot.user.username} is online!`);
