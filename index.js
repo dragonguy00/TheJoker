@@ -106,7 +106,7 @@ let fLeaderRole = message.guild.roles.find(`name`, "Faction Leader");
   await msg2.react(bot.emojis.get("455268058643038208"))
 
 
-bot.on('messageReactionAdd', (reaction, user) => {
+bot.on('messageReactionAdd', async reaction, user => {
 
 const user3 = message.author;
 
