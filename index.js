@@ -152,21 +152,21 @@ const collector = new Discord.MessageCollector(message.channel, m => m.author.id
               let input = message.content.toLowerCase();
 
               if (input === "forums") {
-               message.channel.send(`Hey ${message.author.username}, what aspect of the forums do you need assistance with? The three most common queries are listed below. If your query is not stated below, contact one of our staff members (a list can be loacted by running !stafflist).\n*Reply with either "1", "2", "3" or "4" if your query is not stated below.*\n\n     **1)** Syncing my In-Game account to my Forums account.\n     **2)** Changing my DOB &/ name on the Forums.\n     **3)** Reporting a user who broke the forum rules.\n     4) Other.`)
+               message.channel.send(`**What aspect of the forums do you need assistance with?**\nThe three most common queries are listed below. If your query is not stated below, contact one of our staff members (a list can be loacted by running !stafflist).\n*Reply with either "1", "2" or "3".*\n\n     **1)** Syncing my In-Game account to my Forums account.\n     **2)** Changing my DOB &/ name on the Forums.\n     **3)** Reporting a user who broke the forum rules.`)
 
                   collector.on('collect', message => {
                    let input2 = message.content.toLowerCase();
 
                     if (input2 === "1"){
-                      return message.channel.send(`__**How do I get my Minecraft account linked and displayed (synced) on my forums account?**__\n    1) Ensure you are logged into your forum account on your main browser.\n    2) Log into Arkham in-game.\n    3) Run the command "/syncaccount".\n    4) You'll be presented with a one-time use link. Click it to open it in your main browser.\n    5) You should receive a message saying you are successfully linked, sporting your IGN and skin across the page.\n\nAfter a successful sync, you'll start to see the default minotar skull showing up. You'll be instantly able to claim your supporter /gkit in-game. The forum's sync cron entry runs every 15 minutes, so it should only take 15 minutes at most for your actual skull & all the other details to automatically show up.`);
+                      return message.channel.send(`__**To link your In-Game account and Forum accounts, do the following:**__\n    1) Ensure you are logged into your forum account on your main browser.\n    2) Log into Arkham in-game.\n    3) Run the command "/syncaccount".\n    4) You'll be presented with a one-time use link. Click it to open it in your main browser.\n    5) You should receive a message saying you are successfully linked, sporting your IGN and skin across the page.\n\nAfter a successful sync, you'll start to see the default minotar skull showing up. You'll be instantly able to claim your supporter /gkit in-game. The forum's sync cron entry runs every 15 minutes, so it should only take 15 minutes at most for your actual skull & all the other details to automatically show up.`);
                       return;
                     }
                     else if (input2 === "2"){
-                      message.channel.send(`__**How do I change my date of birth and or name on the forums?**__\nTo get these settings altered on your forums account, you will be required to get an Administrator with the permissions to change it. However, a quick and easy way of doing this is commenting on Cloud's thread @ http://arkhamnetwork.org/community/threads/forum-name-birthdate-change-requests.83055/.`)
+                      message.channel.send(`__**To change your date of birth and or name on the forums, read the following:**__\nTo get these settings altered on your forums account, you will be required to get an Administrator with the permissions to change it. However, a quick and easy way of doing this is commenting on Cloud's thread @ http://arkhamnetwork.org/community/threads/forum-name-birthdate-change-requests.83055/.`)
                       return;
                     }
                     else if (input2 === "3"){
-                      message.channel.send(`__**A user has broken a forum rule(s), how do I report them?**__\nTo report a user for breaking a forum rule(s), contact a Moderator+ via a forum conversation, or @tag them on the thread. From here, the staff member will deal with the user, issuing a warning point(s) and merge / delete the post.`)
+                      message.channel.send(`__**If a user has broken one of the forum rules, do the following:**__\nTo report a user for breaking a forum rule(s), contact a Moderator+ via a forum conversation, or @tag them on the thread. From here, the staff member will deal with the user, issuing a warning point(s) and merge / delete the post.`)
                       return;
                     }
 
