@@ -188,9 +188,9 @@ const collector = new Discord.MessageCollector(message.channel, m => m.author.id
 
                return;
              }
-             else {
-               return message.channel.send("Sorry, you didn't specify a valid section of the Network!");
-             }
+             // else {
+             //   return message.channel.send("Sorry, you didn't specify a valid section of the Network!");
+             // }
 
            });
         }
