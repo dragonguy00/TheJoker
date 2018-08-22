@@ -112,7 +112,7 @@ const user3 = message.author;
 
     if(reaction.emoji.name === "✅") {
 
-      user3.addRole(fLeaderRole.id);
+      await(user3.addRole(fLeaderRole.id));
 
         try{
           return message.author.send(`Congratulations, you have been given the ${fLeaderRole.name} role on the ArkhamNetwork Discord Server!`);
