@@ -153,7 +153,9 @@ const collector = new Discord.MessageCollector(message.channel, m => m.author.id
 
               if (input === "forums") {
                message.channel.send(`Hey ${message.author.username}, what aspect of the forums do you need assistance with? (Reply with either "1", "2", "3" or "4" if your query is not stated below).\n\n     1) Syncing my In-Game account to my Forums account.\n     2) Changing my DOB &/ name on the Forums.\n     3) Reporting a user who broke the forum rules.\n     4) Other.`)
-                 collector.on('collect', message => {
+                  message.channel.awaitMessage(`collect`, message => {
+                 //collector.on('collect', message => {
+                   //message.channel.awaitMessages(response => message.content
                    let input2 = message.content.toLowerCase();
                     if (input2 === "1"){
                       return message.channel.send(`__**How do I get my Minecraft account linked and displayed (synced) on my forums account?**__\n    1) Ensure you are logged into your forum account on your main browser.\n    2) Log into Arkham in-game.\n    3) Run the command "/syncaccount".\n    4) You'll be presented with a one-time use link. Click it to open it in your main browser.\n    5) You should receive a message saying you are successfully linked, sporting your IGN and skin across the page.\n\nAfter a successful sync, you'll start to see the default minotar skull showing up. You'll be instantly able to claim your supporter /gkit in-game. The forum's sync cron entry runs every 15 minutes, so it should only take 15 minutes at most for your actual skull & all the other details to automatically show up.`);
