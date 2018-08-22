@@ -143,7 +143,7 @@ bot.on('messageReactionRemove', (reaction, user) => {
 
 if (cmd === `${prefix}help`) {
 
-const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 20000 });
+const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 30000 });
 //${message.author.username}
     if (message.channel.name === 'bot-commands') {
             message.channel.send(`Hey, <@${user.id}>! \n \n**What section of the Network do you require assistance with?** \n*Reply with __one__ of the following: Forums, In-Game, Discord or Forms (Need help with a transaction, reporting a rule breaker, appeal a punishment or reporting a bug?).*`);
