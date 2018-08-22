@@ -144,7 +144,7 @@ bot.on('messageReactionRemove', (reaction, user) => {
 if (cmd === `${prefix}help`) {
 
 const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 20000 });
-
+//${message.author.username}
     if (message.channel.name === 'bot-commands') {
             message.channel.send(`Hey, <@${user.id}>! \n \n**What section of the Network do you require assistance with?** \n*Reply with __one__ of the following: Forums, In-Game, Discord or Forms (Need help with a transaction, reporting a rule breaker, appeal a punishment or reporting a bug?).*`);
 
@@ -175,10 +175,31 @@ const collector = new Discord.MessageCollector(message.channel, m => m.author.id
                return;
              }
              else if (input === "in-game") {
-               message.channel.send(`Hey ${message.author.username}, here is a list of commonly asked questions related to __${input}__ information, features and usage. If your question isn't answered below, contact one of our staff members (a list can be loacted by running !stafflist).\n\n__**I'm unable to connect to the server!**__\n If you are unable to join as you are receiving either of the following error messages:\n\n    ❖ Can't resolve host name or Cannot connect to server - Try connecting to the server using a different IP such as beepboop.qc.to or gtacraft.me\n\n    ❖ Java. Socketexception: Network unreachable - As a result of Coelho's bypass, this error isn't as common. However, if you do encounter it, try connecting via a different IP address / MC version. If you are still unable to connect to the server, try connecting through SquidHQ, downloadable @ squidhq.com.\n\n__**How to I equip, change and font my title?**__\nTo equip a title you have won or purchased, do /title. This will bring up the title GUI where you will be able to select a title to equip. If you currently have a title equipped, selecting another title will remove it and apply the newly selected title. To change the font of your title, do /titlecolor. From here, you will be able to change the font of it.\n\n__**What are Vote Credits?**__\nVote Credits are __one__ of the rewards obtained from voting. When claiming votes, you will be credited both a Vote Key(s) and Vote Credits. You will be able to use these credits via /creditshop on revamped gamemodes, where you are able to purchase global items, such as ranks, as well as gamemode-specific items, such as a Private mine on Prison.\n\n__**I've lost [In-game item], how can I get it back?**__\nIn-game items are sadly non-refundable. However, if you lose an item such as an Omnitool on Prison, and you have proof of it, then there is a`)
-               message.channel.send(`possibility of receiving it back if the Administrators see it as sufficient proof.\n\n__**An item vanished from my inventory / I got scammed!**__\nUnfortunately, in-game items are *non-refundable*. If you purchased an item and it got scammed, there is also sadly nothing that can be done - this is not IRL scamming (Which would result in the offending user being banned). IRL scamming is purchasing an item for someone and they don't give their part of the deal in-game.`)
+               message.channel.send(`**What aspect of the server do you need assistance with?**\nThe three most common queries are listed below. If your query is not stated below, select 4, if it is still not answered, contact one of our staff members (a list can be loacted by running !stafflist).\n\n     **1)** I'm unable to connect to the server!\n     **2)** I've lost [In-game item], how can I get it back?\n     **3)** What are Vote Credits?\n     **4)** Other. \n\n*Reply with either "1", "2", "3" or "4"*`)
 
-               return;
+               collector.on('collect', message => {
+                let input3 = message.content.toLowerCase();
+
+                 if (input3 === "1"){
+                   return message.channel.send(`__**If you are unable to connect to the server, try the following:**__\n    If you are unable to join as you are receiving either of the following error messages:\n\n    ❖ Can't resolve host name or Cannot connect to server - Try connecting to the server using a different IP such as beepboop.qc.to or gtacraft.me\n\n    ❖ Java. Socketexception: Network unreachable - As a result of Coelho's bypass, this error isn't as common. However, if you do encounter it, try connecting via a different IP address / MC version. If you are still unable to connect to the server, try connecting through SquidHQ, downloadable @ squidhq.com.`);
+                   return;
+                 }
+                 else if (input3 === "2"){
+                   message.channel.send(`__**If you have lost an item, read the following:**__\In-game items are sadly non-refundable. However, if you lose an item such as an Omnitool on Prison, and you have proof of it, then there is a possibility of receiving it back if the Administrators see it as sufficient proof.\n\n__**An item vanished from my inventory / I got scammed!**__\nUnfortunately, in-game items are *non-refundable*. If you purchased an item and it got scammed, there is also sadly nothing that can be done - this is not IRL scamming (Which would result in the offending user being banned). IRL scamming is purchasing an item for someone and they don't give their part of the deal in-game.`)
+                   return;
+                 }
+                 else if (input3 === "3"){
+                   message.channel.send(`__**Wondering what vote credits are? Read the following:**__\nVote Credits are __one__ of the rewards obtained from voting. When claiming votes, you will be credited both a Vote Key(s) and Vote Credits. You will be able to use these credits via /creditshop on revamped gamemodes, where you are able to purchase global items, such as ranks, as well as gamemode-specific items, such as a Private mine on Prison.`)
+                   return;
+                 }
+                 else if (input3 === "4") {
+                   message.channel.send(`Here is a list of other commonly asked questions related to in-game information, features and usage. If your question isn't answered below, contact one of our staff members (a list can be loacted by running !stafflist).\n\n__**How to I equip, change and font my title?**__\nTo equip a title you have won or purchased, do /title. This will bring up the title GUI where you will be able to select a title to equip. If you currently have a title equipped, selecting another title will remove it and apply the newly selected title. To change the font of your title, do /titlecolor. From here, you will be able to change the font of it.`)
+                   return;
+                 }
+
+              })
+
+            return;
              }
              else if (input === "discord") {
                message.channel.send(`Hey ${message.author.username}, here is a list of commonly asked questions related to __${input}__ information, features and usage. If your question isn't answered below, contact one of our staff members (a list can be loacted by running !stafflist).\n\n__**How do I receive my donator rank on Discord?**__\n If your forum and MC account are already synced, skip step one.\n\n    1) Syncing your forum account - The first step in obtaining your donator rank on discord is to sync your in-game account to your forum account. To do this, simply run /syncaccount while in-game and click on the message prompt in chat. You will be able to verify that your in-game account has synced to your forum account by going onto your profile page. On there, you should notice your donator rank tag/ title and a unique donator rank banner for your rank.\n\n    2) Discord Integration - The next rank to obtaining your donator rank is to associate your forum account to your discord account. To do this, go to the 'External Accounts' setting on your forums account (http://arkhamnetwork.org/community/account/external-accounts). Click on the 'Associate with Discord' button then sign into your discord account. Once you have done this, you will be asked to allow ArkhamNetwork to be able to access certain information about you, such as your email address and what discord servers your're in. If you are ready to allow it to do so, click the 'Authorize' button.`)
