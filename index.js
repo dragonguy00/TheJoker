@@ -156,7 +156,7 @@ const collector = new Discord.MessageCollector(message.channel, m => m.author.id
                  collector.on('collect', message => {
                    let input2 = message.content.toLowerCase();
                     if (input2 === "1"){
-                      message.channel.send(`__**How do I get my Minecraft account linked and displayed (synced) on my forums account?**__\n    1) Ensure you are logged into your forum account on your main browser.\n    2) Log into Arkham in-game.\n    3) Run the command "/syncaccount".\n    4) You'll be presented with a one-time use link. Click it to open it in your main browser.\n    5) You should receive a message saying you are successfully linked, sporting your IGN and skin across the page.\n\nAfter a successful sync, you'll start to see the default minotar skull showing up. You'll be instantly able to claim your supporter /gkit in-game. The forum's sync cron entry runs every 15 minutes, so it should only take 15 minutes at most for your actual skull & all the other details to automatically show up.`)
+                      return message.channel.send(`__**How do I get my Minecraft account linked and displayed (synced) on my forums account?**__\n    1) Ensure you are logged into your forum account on your main browser.\n    2) Log into Arkham in-game.\n    3) Run the command "/syncaccount".\n    4) You'll be presented with a one-time use link. Click it to open it in your main browser.\n    5) You should receive a message saying you are successfully linked, sporting your IGN and skin across the page.\n\nAfter a successful sync, you'll start to see the default minotar skull showing up. You'll be instantly able to claim your supporter /gkit in-game. The forum's sync cron entry runs every 15 minutes, so it should only take 15 minutes at most for your actual skull & all the other details to automatically show up.`);
                     }
                     else if (input2 === "2"){
                       message.channel.send(`__**How do I change my date of birth and or name on the forums?**__\nTo get these settings altered on your forums account, you will be required to get an Administrator with the permissions to change it. However, a quick and easy way of doing this is commenting on Cloud's thread @ http://arkhamnetwork.org/community/threads/forum-name-birthdate-change-requests.83055/.`)
@@ -191,13 +191,12 @@ const collector = new Discord.MessageCollector(message.channel, m => m.author.id
              else {
                return message.channel.send("Sorry, you didn't specify a valid section of the Network!");
              }
-             else {
-               return message.channel.send(`Sorry, you can only use that command in ${botchannel}!`);
-               }
+
            });
-
         }
-
+      else {
+        return message.channel.send(`Sorry, you can only use that command in ${botchannel}!`);
+        }
 
 }
 
