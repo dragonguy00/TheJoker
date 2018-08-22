@@ -191,12 +191,13 @@ const collector = new Discord.MessageCollector(message.channel, m => m.author.id
              else {
                return message.channel.send("Sorry, you didn't specify a valid section of the Network!");
              }
-
+             else {
+               return message.channel.send(`Sorry, you can only use that command in ${botchannel}!`);
+               }
            });
+
         }
-      else {
-        return message.channel.send(`Sorry, you can only use that command in ${botchannel}!`);
-        }
+
 
 }
 
