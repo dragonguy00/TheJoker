@@ -33,27 +33,27 @@ if (cmd === `${prefix}commands`) {
 
 }
 
-if (cmd === `${prefix}addflrole`) {
+// if (cmd === `${prefix}addflrole`) {
 
-  //,addflrole @user
+//   //,addflrole @user
 
-  if(!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("Sorry, you can't do that.");
-  let rMember = message.mentions.members.first() || message.guild.members.get(args[0]);
-  if(!rMember) return message.channel.send("Sorry, that user doesn't exist!");
-  // let frole = args.slice(1).join(" ");
-  // if(!frole) return message.channel.send("Sorry, you didn't specify a role!");
-  let fLeaderRole = message.guild.roles.find(`name`, "Faction Leader");
-  if(!fLeaderRole) return message.channel.send("Couldn't find that role.");
+//   if(!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("Sorry, you can't do that.");
+//   let rMember = message.mentions.members.first() || message.guild.members.get(args[0]);
+//   if(!rMember) return message.channel.send("Sorry, that user doesn't exist!");
+//   // let frole = args.slice(1).join(" ");
+//   // if(!frole) return message.channel.send("Sorry, you didn't specify a role!");
+//   let fLeaderRole = message.guild.roles.find(`name`, "Faction Leader");
+//   if(!fLeaderRole) return message.channel.send("Couldn't find that role.");
 
-  if(rMember.roles.has(fLeaderRole.id)) return message.channel.send(`Sorry, <@${rMember.user.id}> already has that role!`);
-  await(rMember.addRole(fLeaderRole.id));
+//   if(rMember.roles.has(fLeaderRole.id)) return message.channel.send(`Sorry, <@${rMember.user.id}> already has that role!`);
+//   await(rMember.addRole(fLeaderRole.id));
 
-    try{
-      await rMember.send(`Congratulations, you have been given the ${fLeaderRole.name} role on the ArkhamNetwork Discord Server!`)
-    }catch(e){
-      botchannel.send(`Congrats to <@${rMember.id}>, they have been given the role ${fLeaderRole.name}. We tried to DM them, but their DMs are locked.`)
-    }
-}
+//     try{
+//       await rMember.send(`Congratulations, you have been given the ${fLeaderRole.name} role on the ArkhamNetwork Discord Server!`)
+//     }catch(e){
+//       botchannel.send(`Congrats to <@${rMember.id}>, they have been given the role ${fLeaderRole.name}. We tried to DM them, but their DMs are locked.`)
+//     }
+// }
 
 if (cmd === `${prefix}fleader`) {
 
@@ -62,7 +62,6 @@ if (cmd === `${prefix}fleader`) {
 let recruitmentchannel = message.guild.channels.find(`name`, "faction-recruitment")
 let recruitmentRchannel = message.guild.channels.find(`name`, "faction-leader-requests")
 let fLeaderRole = message.guild.roles.find(`name`, "Faction Leader");
-let user = message.guild.member(message.author);
 
   if(message.member.roles.find(`name`, "Faction Leader")) {
     message.delete().catch(O_o=>{});
@@ -70,16 +69,16 @@ let user = message.guild.member(message.author);
   }
   else {
   let ign = args[0];
-  message.delete().catch(O_o=>{});
-  if(!ign) return message.channel.send(`<@${user.id}>, you didn't state your IGN!"`);
+    message.delete().catch(O_o=>{});
+  if(!ign) return message.channel.send(`<@${message.author.id}>, you didn't state all the information required when submiting a Faction Leader Role request! Esure you follow the command: ${prefix}fleader <ign> <faction name> <faction discord>.`);
 
   let faction = args[1];
-  message.delete().catch(O_o=>{});
-  if(!faction) return message.channel.send(`<@${user.id}>, you didn't state your Faction!"`);
+    message.delete().catch(O_o=>{});
+  if(!faction) return message.channel.send(`<@${message.author.id}>, you didn't state all the information required when submiting a Faction Leader Role request! Esure you follow the command: ${prefix}fleader <ign> <faction name> <faction discord>.`);
 
   let fDiscord = args[2];
-  message.delete().catch(O_o=>{});
-  if(!fDiscord) return message.channel.send(`<@${user.id}>, you didn't state your Faction Discord!"`);
+    message.delete().catch(O_o=>{}); 
+  if(!fDiscord) return message.channel.send(`<@${message.author.id}>, you didn't state all the information required when submiting a Faction Leader Role request! Esure you follow the command: ${prefix}fleader <ign> <faction name> <faction discord>.`);
 
   let user = message.guild.member(message.author);
 
@@ -87,11 +86,13 @@ let user = message.guild.member(message.author);
   .setTitle(`Faction Leader Role Request`)
   .setColor("#9017a5")
   .setAuthor(`${message.author.username}`, message.author.displayAvatarURL)
-  .setDescription(`The following is a request for the Faction Leader role. Before approving the request, ensure they meet the requirements:\n\n __The leader of an Established Faction:__\n❖ Multiple active members\n❖ Have a faction discord server\n❖ Playing the current map\n\n If the above requirements are met, add another ✅ below, and run the following command so the user is PM'd via the bot saying they have been given the roles: *,addflrole @user*`)
+  .setDescription(`The following is a request for the Faction Leader role. Before approving the request, ensure they meet the requirements:\n\n __The leader of an Established Faction:__\n❖ Multiple active members\n❖ Have a faction discord server\n❖ Playing the current map\n\n If the above requirements are met, add another ✅ below. If you add this emoji, the user will automatically be PM'd by the bot saying that they have gotten the role and it will be given to them too. Adding another ❌ below, will result in the bot PM'ing the user, saying they have been unsuccesful in receiving the role.`)
+  //and run the following command so the user is PM'd via the bot saying they have been given the roles: *,addflrole @user*
   .setThumbnail("https://i.imgur.com/Kv9ZcHX.png")
-  .addField("Submitted By", `${message.author}`)
-  .addField("Faction Name", faction)
-  .addField("Faction Discord", fDiscord)
+  .addField("Submitted By", `${message.author}`, true)
+  .addField("IGN", ign, true)
+  .addField("Faction Name", faction, true)
+  .addField("Faction Discord", fDiscord, true)
   .setTimestamp()
   .setFooter(`This message is generated by ${bot.user.username}.`, bot.user.displayAvatarURL);
 
@@ -106,10 +107,12 @@ let user = message.guild.member(message.author);
 
 
 bot.on('messageReactionAdd', (reaction, user) => {
-
+  
+  if(user === message.author.bot) return;
+  
     if(reaction.emoji.name === "✅") {
 
-      message.member.addRole(fLeaderRole.id);
+      message.author.addRole(fLeaderRole.id);
 
         try{
           return message.author.send(`Congratulations, you have been given the ${fLeaderRole.name} role on the ArkhamNetwork Discord Server!`);
@@ -123,10 +126,10 @@ bot.on('messageReactionAdd', (reaction, user) => {
 });
 
 bot.on('messageReactionRemove', (reaction, user) => {
-
+  
     if(reaction.emoji.name === "✅") {
 
-      message.member.removeRole(fLeaderRole.id);
+      message.author.removeRole(fLeaderRole.id);
 
     }
     else if (reaction.emoji.name === "❌") {
