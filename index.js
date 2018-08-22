@@ -1,6 +1,7 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
 const token = process.env.token;
+const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 30000 });
 const bot = new Discord.Client({disableEveryone: true});
 
 bot.on("ready", async () => {
@@ -142,8 +143,6 @@ bot.on('messageReactionRemove', (reaction, user) => {
 
 
 if (cmd === `${prefix}help`) {
-
-const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 30000 });
 //${message.author.username}
     if (message.channel.name === 'bot-commands') {
             message.channel.send(`Hey, <@${user.id}>! \n \n**What section of the Network do you require assistance with?** \n*Reply with __one__ of the following: Forums, In-Game, Discord or Forms (Need help with a transaction, reporting a rule breaker, appeal a punishment or reporting a bug?).*`);
@@ -228,6 +227,7 @@ const collector = new Discord.MessageCollector(message.channel, m => m.author.id
                   message.channel.send(`Here is a list of other commonly asked questions related to in-game information, features and usage. If your question isn't answered below, contact one of our staff members (a list can be loacted by running !stafflist).\n\n__**Found a bug? Report it!**__\nIf you have found a bug, report it via the following form http://arkhamnetwork.org/community/forms/bug-report.6/respond. Ensure you provide as much information as possible to better assist out DEVs in getting this bug fixed!\n\n__**Have an idea for a new feature for the Network?**__\nSubmit your ideas via the suggestions form (http://arkhamnetwork.org/community/forms/suggestions-form.8/respond), to receieve community feedback, and ultimately staff feedback to see if your idea could one day be implemented onto the server, forums or discord! However, make sure you read the suggestions guide first at http://arkhamnetwork.org/community/threads/official-suggestions-guide.83072/.`)
                   return;
                 }
+
                return;
               })
              }
@@ -246,9 +246,28 @@ const collector = new Discord.MessageCollector(message.channel, m => m.author.id
 if (cmd === `${prefix}forumshelp`) {
 
   if (message.channel.name === 'bot-commands') {
-        message.channel.send(`Hey ${message.author.username}, here is a list of commonly asked questions related to forums information, features and usage. If your question isn't answered below, contact one of our staff members (a list can be loacted by running !stafflist).\n\n__**How do I get my Minecraft account linked and displayed (synced) on my forums account?**__\n    1) Ensure you are logged into your forum account on your main browser.\n    2) Log into Arkham in-game.\n    3) Run the command "/syncaccount".\n    4) You'll be presented with a one-time use link. Click it to open it in your main browser.\n    5) You should receive a message saying you are successfully linked, sporting your IGN and skin across the page.\n\nAfter a successful sync, you'll start to see the default minotar skull showing up. You'll be instantly able to claim your supporter /gkit in-game. The forum's sync cron entry runs every 15 minutes, so it should only take 15 minutes at most for your actual skull & all the other details to automatically show up.\n\n__**How do I change my date of birth and or name on the forums?**__\nTo get these settings altered on your forums account, you will be required to get an Administrator with the permissions to change it. However, a quick and easy way of doing this is commenting on Cloud's thread @ http://arkhamnetwork.org/community/threads/forum-name-birthdate-change-requests.83055/.\n\n__**A user has broken a forum rule(s), how do I report them?**__\nTo report a user for breaking a forum rule(s), contact a Moderator+ via a forum conversation, or @tag them on the thread. From here, the staff member will deal with the user, issuing a warning point(s) and merge / delete the post.`)
+    message.channel.send(`**What aspect of the forums do you need assistance with?**\nThe three most common queries are listed below. If your query is not stated below, contact one of our staff members (a list can be loacted by running !stafflist).\n\n     **1)** Syncing my In-Game account to my Forums account.\n     **2)** Changing my DOB &/ name on the Forums.\n     **3)** Reporting a user who broke the forum rules.\n\n*Reply with either "1", "2" or "3".*`)
 
-        return;
+       collector.on('collect', message => {
+        let input2 = message.content.toLowerCase();
+
+         if (input2 === "1"){
+           return message.channel.send(`__**To link your In-Game and Forum accounts, do the following:**__\n    1) Ensure you are logged into your forum account on your main browser.\n    2) Log into Arkham in-game.\n    3) Run the command "/syncaccount".\n    4) You'll be presented with a one-time use link. Click it to open it in your main browser.\n    5) You should receive a message saying you are successfully linked, sporting your IGN and skin across the page.\n\nAfter a successful sync, you'll start to see the default minotar skull showing up. You'll be instantly able to claim your supporter /gkit in-game. The forum's sync cron entry runs every 15 minutes, so it should only take 15 minutes at most for your actual skull & all the other details to automatically show up.`);
+           return;
+         }
+         else if (input2 === "2"){
+           message.channel.send(`__**To change your date of birth and or name on the forums, read the following:**__\nTo get these settings altered on your forums account, you will be required to get an Administrator with the permissions to change it. However, a quick and easy way of doing this is commenting on Cloud's thread @ http://arkhamnetwork.org/community/threads/forum-name-birthdate-change-requests.83055/.`)
+           return;
+         }
+         else if (input2 === "3"){
+           message.channel.send(`__**If a user has broken one of the forum rules, do the following:**__\nTo report a user for breaking a forum rule(s), contact a Moderator+ via a forum conversation, or @tag them on the thread. From here, the staff member will deal with the user, issuing a warning point(s) and merge / delete the post.`)
+           return;
+         }
+
+      })
+
+    return;
+
       }
     else {
       return message.channel.send(`Sorry, you can only use that command in ${botchannel}!`);
