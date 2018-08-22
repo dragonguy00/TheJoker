@@ -152,7 +152,7 @@ const collector = new Discord.MessageCollector(message.channel, m => m.author.id
               let input = message.content.toLowerCase();
 
               if (input === "forums") {
-               message.channel.send(`**What aspect of the forums do you need assistance with?**\nThe three most common queries are listed below. If your query is not stated below, contact one of our staff members (a list can be loacted by running !stafflist).\n*Reply with either "1", "2" or "3".*\n\n     **1)** Syncing my In-Game account to my Forums account.\n     **2)** Changing my DOB &/ name on the Forums.\n     **3)** Reporting a user who broke the forum rules.`)
+               message.channel.send(`**What aspect of the forums do you need assistance with?**\nThe three most common queries are listed below. If your query is not stated below, contact one of our staff members (a list can be loacted by running !stafflist).\n\n     **1)** Syncing my In-Game account to my Forums account.\n     **2)** Changing my DOB &/ name on the Forums.\n     **3)** Reporting a user who broke the forum rules.\n\n*Reply with either "1", "2" or "3".*`)
 
                   collector.on('collect', message => {
                    let input2 = message.content.toLowerCase();
