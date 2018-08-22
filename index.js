@@ -1,7 +1,6 @@
 const botconfig = require("./botconfig.json");
 const Discord = require("discord.js");
 const token = process.env.token;
-const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 30000 });
 const bot = new Discord.Client({disableEveryone: true});
 
 bot.on("ready", async () => {
@@ -144,6 +143,8 @@ bot.on('messageReactionRemove', (reaction, user) => {
 
 if (cmd === `${prefix}help`) {
 //${message.author.username}
+const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 30000 });
+
     if (message.channel.name === 'bot-commands') {
             message.channel.send(`Hey, <@${user.id}>! \n \n**What section of the Network do you require assistance with?** \n*Reply with __one__ of the following: Forums, In-Game, Discord or Forms (Need help with a transaction, reporting a rule breaker, appeal a punishment or reporting a bug?).*`);
 
@@ -245,6 +246,8 @@ if (cmd === `${prefix}help`) {
 
 if (cmd === `${prefix}forumshelp`) {
 
+const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 30000 });
+
   if (message.channel.name === 'bot-commands') {
     message.channel.send(`**What aspect of the forums do you need assistance with?**\nThe three most common queries are listed below. If your query is not stated below, contact one of our staff members (a list can be loacted by running !stafflist).\n\n     **1)** Syncing my In-Game account to my Forums account.\n     **2)** Changing my DOB &/ name on the Forums.\n     **3)** Reporting a user who broke the forum rules.\n\n*Reply with either "1", "2" or "3".*`)
 
@@ -275,6 +278,8 @@ if (cmd === `${prefix}forumshelp`) {
 }
 
 if (cmd === `${prefix}in-gamehelp`) {
+
+const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 30000 });
 
   if (message.channel.name === 'bot-commands') {
     message.channel.send(`**What aspect of the server do you need assistance with?**\nThe three most common queries are listed below. If your query is not stated below, select 4, if it is still not answered, contact one of our staff members (a list can be loacted by running !stafflist).\n\n     **1)** I'm unable to connect to the server!\n     **2)** I've lost [In-game item], how can I get it back?\n     **3)** What are Vote Credits?\n     **4)** Other. \n\n*Reply with either "1", "2", "3" or "4"*`)
@@ -322,6 +327,8 @@ if (cmd === `${prefix}discordhelp`) {
 }
 
 if (cmd === `${prefix}formshelp`) {
+
+const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 30000 });
 
   if (message.channel.name === 'bot-commands') {
     message.channel.send(`**What aspect of the forms (on the Forums) do you need assistance with?**\nThe three most common queries are listed below. If your query is not stated below, select 4, if it is still not answered, contact one of our staff members (a list can be loacted by running !stafflist).\n\n     **1)** How to I report a rule breaker?\n     **2)** How do I appeal a punishment?\n     **3)** I haven't receieved/ lost a purchased good, help!\n     **4)** Other. \n\n*Reply with either "1", "2", "3" or "4"*`)
