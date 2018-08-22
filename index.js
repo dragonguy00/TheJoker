@@ -277,10 +277,32 @@ if (cmd === `${prefix}forumshelp`) {
 if (cmd === `${prefix}in-gamehelp`) {
 
   if (message.channel.name === 'bot-commands') {
-        message.channel.send(`Hey ${message.author.username}, here is a list of commonly asked questions related to in-game information, features and usage. If your question isn't answered below, contact one of our staff members (a list can be loacted by running !stafflist).\n\n__**I'm unable to connect to the server!**__\n If you are unable to join as you are receiving either of the following error messages:\n\n    ❖ Can't resolve host name or Cannot connect to server - Try connecting to the server using a different IP such as beepboop.qc.to or gtacraft.me\n\n    ❖ Java. Socketexception: Network unreachable - As a result of Coelho's bypass, this error isn't as common. However, if you do encounter it, try connecting via a different IP address / MC version. If you are still unable to connect to the server, try connecting through SquidHQ, downloadable @ squidhq.com.\n\n__**How to I equip, change and font my title?**__\nTo equip a title you have won or purchased, do /title. This will bring up the title GUI where you will be able to select a title to equip. If you currently have a title equipped, selecting another title will remove it and apply the newly selected title. To change the font of your title, do /titlecolor. From here, you will be able to change the font of it.\n\n__**What are Vote Credits?**__\nVote Credits are __one__ of the rewards obtained from voting. When claiming votes, you will be credited both a Vote Key(s) and Vote Credits. You will be able to use these credits via /creditshop on revamped gamemodes, where you are able to purchase global items, such as ranks, as well as gamemode-specific items, such as a Private mine on Prison.\n\n__**I've lost [In-game item], how can I get it back?**__\nIn-game items are sadly non-refundable. However, if you lose an item such as an Omnitool on Prison, and you have proof of it, then there is a`)
-        message.channel.send(`possibility of receiving it back if the Administrators see it as sufficient proof.\n\n__**An item vanished from my inventory / I got scammed!**__\nUnfortunately, in-game items are *non-refundable*. If you purchased an item and it got scammed, there is also sadly nothing that can be done - this is not IRL scamming (Which would result in the offending user being banned). IRL scamming is purchasing an item for someone and they don't give their part of the deal in-game.`)
+    message.channel.send(`**What aspect of the server do you need assistance with?**\nThe three most common queries are listed below. If your query is not stated below, select 4, if it is still not answered, contact one of our staff members (a list can be loacted by running !stafflist).\n\n     **1)** I'm unable to connect to the server!\n     **2)** I've lost [In-game item], how can I get it back?\n     **3)** What are Vote Credits?\n     **4)** Other. \n\n*Reply with either "1", "2", "3" or "4"*`)
 
+    collector.on('collect', message => {
+     let input3 = message.content.toLowerCase();
+
+      if (input3 === "1"){
+        return message.channel.send(`__**If you are unable to connect to the server, try the following:**__\n    If you are unable to join as you are receiving either of the following error messages:\n\n    ❖ Can't resolve host name or Cannot connect to server - Try connecting to the server using a different IP such as beepboop.qc.to or gtacraft.me\n\n    ❖ Java. Socketexception: Network unreachable - As a result of Coelho's bypass, this error isn't as common. However, if you do encounter it, try connecting via a different IP address / MC version. If you are still unable to connect to the server, try connecting through SquidHQ, downloadable @ squidhq.com.`);
         return;
+      }
+      else if (input3 === "2"){
+        message.channel.send(`__**If you have lost an item, read the following:**__\In-game items are sadly non-refundable. However, if you lose an item such as an Omnitool on Prison, and you have proof of it, then there is a possibility of receiving it back if the Administrators see it as sufficient proof.\n\n__**An item vanished from my inventory / I got scammed!**__\nUnfortunately, in-game items are *non-refundable*. If you purchased an item and it got scammed, there is also sadly nothing that can be done - this is not IRL scamming (Which would result in the offending user being banned). IRL scamming is purchasing an item for someone and they don't give their part of the deal in-game.`)
+        return;
+      }
+      else if (input3 === "3"){
+        message.channel.send(`__**Wondering what vote credits are? Read the following:**__\nVote Credits are __one__ of the rewards obtained from voting. When claiming votes, you will be credited both a Vote Key(s) and Vote Credits. You will be able to use these credits via /creditshop on revamped gamemodes, where you are able to purchase global items, such as ranks, as well as gamemode-specific items, such as a Private mine on Prison.`)
+        return;
+      }
+      else if (input3 === "4") {
+        message.channel.send(`Here is a list of other commonly asked questions related to in-game information, features and usage. If your question isn't answered below, contact one of our staff members (a list can be loacted by running !stafflist).\n\n__**How to I equip, change and font my title?**__\nTo equip a title you have won or purchased, do /title. This will bring up the title GUI where you will be able to select a title to equip. If you currently have a title equipped, selecting another title will remove it and apply the newly selected title. To change the font of your title, do /titlecolor. From here, you will be able to change the font of it.`)
+        return;
+      }
+
+   })
+
+  return;
+
       }
     else {
       return message.channel.send(`Sorry, you can only use that command in ${botchannel}!`);
@@ -302,10 +324,31 @@ if (cmd === `${prefix}discordhelp`) {
 if (cmd === `${prefix}formshelp`) {
 
   if (message.channel.name === 'bot-commands') {
-        message.channel.send(`Hey ${message.author.username}, here is a list of commonly asked questions related to forms on the forums, including purchase helps, appeals and reports, as well as bug reports. If your question isn't answered below, contact one of our staff members (a list can be loacted by running !stafflist).\n\n__**Looking to report a user for breaking the rules?**__\nYou are able to submit a Player Report at http://arkhamnetwork.org/community/forums/player-reports.6/. However, before you submit a report, ensure you read the submission guidelines at http://arkhamnetwork.org/community/threads/how-to-properly-report-rule-breakers.83042/.\n\nIf you wish to __report a staff member__, as you believe they have abused their powers or is doing their job incorrectly, get proof (such as a screenshot or video), then report it to a Admin+ via forums conversation or Discord DM. You are able to get a list of all the Admins+ via running !stafflist. Then, enter the name of Admin+ beside 'Participants:'. All Admins+ are listed on the Official Staff List Logs, linked above.\n\n__**Want to appeal a punishment?**__\nYou are able to appeal both in-game and discord punishments via the same form! You are able to do so at http://arkhamnetwork.org/community/forms/punishment-appeal-form.1/respond, where a member of the Ban Team will sort it. If you are looking to appeal a chargeback ban, also do so at the link provided above, and a Ban Team member will move it to the chargeback ban appeals section to be sorted by MrSneakyGuy.\n\n__**Haven't received a purchase, or lost a purchased rank?**__\nTo receive a purchase back or one that you have't received, you will be required to submit a purchase help at http://arkhamnetwork.org/community/index.php?forms/purchase-help.3/respond. Note, if you believe you have lost your donator rank,`)
-        message.channel.send(`check /titlerank to check if still have the rank title. If you don't, then do so as above.\n\n__**Found a bug? Report it!**__\nIf you have found a bug, report it via the following form http://arkhamnetwork.org/community/forms/bug-report.6/respond. Ensure you provide as much information as possible to better assist out DEVs in getting this bug fixed!\n\n__**Have an idea for a new feature for the Network?**__\nSubmit your ideas via the suggestions form at http://arkhamnetwork.org/community/forms/suggestions-form.8/respond, to receieve community feedback, and ultimately staff feedback to see if your idea could one day be implemented onto the server, forums or discord! However, make sure you read the suggestions guide first at http://arkhamnetwork.org/community/threads/official-suggestions-guide.83072/.`)
+    message.channel.send(`**What aspect of the forms (on the Forums) do you need assistance with?**\nThe three most common queries are listed below. If your query is not stated below, select 4, if it is still not answered, contact one of our staff members (a list can be loacted by running !stafflist).\n\n     **1)** How to I report a rule breaker?\n     **2)** How do I appeal a punishment?\n     **3)** I haven't receieved/ lost a purchased good, help!\n     **4)** Other. \n\n*Reply with either "1", "2", "3" or "4"*`)
 
-        return;
+    collector.on('collect', message => {
+    let input4 = message.content.toLowerCase();
+
+    if (input4 === "1"){
+      message.channel.send(`__**Looking to report a user for breaking the rules?**__\nYou are able to submit a Player Report at http://arkhamnetwork.org/community/forums/player-reports.6/. However, before you submit a report, ensure you read the submission guidelines at http://arkhamnetwork.org/community/threads/how-to-properly-report-rule-breakers.83042/.\n\nIf you wish to __report a staff member__, as you believe they have abused their powers or is doing their job incorrectly, get proof (such as a screenshot or video), then report it to a Admin+ via forums conversation or Discord DM. You are able to get a list of all the Admins+ via running !stafflist. Then, enter the name of Admin+ beside 'Participants:'. All Admins+ are listed on the Official Staff List Logs, linked above.`);
+      return;
+     }
+     else if (input4 === "2"){
+       message.channel.send(`__**Want to appeal a punishment?**__\nYou are able to appeal both in-game and discord punishments via the same form! You are able to do so at http://arkhamnetwork.org/community/forms/punishment-appeal-form.1/respond, where a member of the Ban Team will sort it. If you are looking to appeal a chargeback ban, also do so at the link provided above, and a Ban Team member will move it to the chargeback ban appeals section to be sorted by MrSneakyGuy.`)
+       return;
+     }
+       else if (input4 === "3"){
+     message.channel.send(`__**Haven't received a purchase, or lost a purchased rank?**__\nTo receive a purchase back or one that you have't received, you will be required to submit a purchase help at http://arkhamnetwork.org/community/index.php?forms/purchase-help.3/respond. Note, if you believe you have lost your donator rank, check /titlerank to check if still have the rank title. If you don't, then do so as stated.`)
+       return;
+     }
+     else if (input4 === "4") {
+       message.channel.send(`Here is a list of other commonly asked questions related to in-game information, features and usage. If your question isn't answered below, contact one of our staff members (a list can be loacted by running !stafflist).\n\n__**Found a bug? Report it!**__\nIf you have found a bug, report it via the following form http://arkhamnetwork.org/community/forms/bug-report.6/respond. Ensure you provide as much information as possible to better assist out DEVs in getting this bug fixed!\n\n__**Have an idea for a new feature for the Network?**__\nSubmit your ideas via the suggestions form (http://arkhamnetwork.org/community/forms/suggestions-form.8/respond), to receieve community feedback, and ultimately staff feedback to see if your idea could one day be implemented onto the server, forums or discord! However, make sure you read the suggestions guide first at http://arkhamnetwork.org/community/threads/official-suggestions-guide.83072/.`)
+       return;
+     }
+
+    return;
+   })
+
       }
     else {
       return message.channel.send(`Sorry, you can only use that command in ${botchannel}!`);
