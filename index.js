@@ -108,8 +108,6 @@ let fLeaderRole = message.guild.roles.find(`name`, "Faction Leader");
 
 bot.on('messageReactionAdd', (reaction, user) => {
 
-let user = message.guild.member(message.author);
-
     if(reaction.emoji.name === "✅") {
 
       user.addRole(fLeaderRole.id);
