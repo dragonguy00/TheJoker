@@ -122,8 +122,9 @@ bot.on('messageReactionAdd', (reaction, user) => {
 
     if(reaction.emoji.name === "✅") {
 
-      message.author.addRole(fLeaderRole.id);
-      message.author.removeRole(pflRole.id);
+      user3.removeRole(pflRole.id);
+      user3.addRole(fLeaderRole.id);
+
 
         try{
           return message.author.send(`Congratulations, you have been given the ${fLeaderRole.name} role on the ArkhamNetwork Discord Server!`);
@@ -133,7 +134,7 @@ bot.on('messageReactionAdd', (reaction, user) => {
     }
     else if (reaction.emoji.name === "❌") {
 
-      message.author.removeRole(pflRole.id);
+      user3.removeRole(pflRole.id);
 
       return message.author.send(`Sorry, your request for the ${fLeaderRole.name} role on the ArkhamNetwork Discord Server has been declined.`);
     }
@@ -143,7 +144,7 @@ bot.on('messageReactionRemove', (reaction, user) => {
 
     if(reaction.emoji.name === "✅") {
 
-      message.author.removeRole(fLeaderRole.id);
+      user3.removeRole(fLeaderRole.id);
 
     }
     else if (reaction.emoji.name === "❌") {
