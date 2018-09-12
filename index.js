@@ -108,11 +108,10 @@ let fLeaderRole = message.guild.roles.find(`name`, "Faction Leader");
 
 bot.on('messageReactionAdd', (reaction, user) => {
 
-const user3 = message.author;
 
     if(reaction.emoji.name === "✅") {
 
-      user3.addRole(fLeaderRole.id);
+      message.author.addRole(fLeaderRole.id);
 
         try{
           return message.author.send(`Congratulations, you have been given the ${fLeaderRole.name} role on the ArkhamNetwork Discord Server!`);
