@@ -73,6 +73,9 @@ let pflRole = message.guild.roles.find(`name`, "Pending FL Request");
     return message.channel.send(`<@${user.id}>, you already have a pending faction leader role request! You will be notified when a decision has been made.`);
   }
   else {
+
+    let user3 = message.guild.member(message.author);
+
   let ign = args[0];
     message.delete().catch(O_o=>{});
   if(!ign) return message.channel.send(`<@${message.author.id}>, you didn't state all the information required when submiting a Faction Leader Role request! Esure you follow the command: ${prefix}fleader <ign> <faction name> <faction discord>.`);
@@ -110,7 +113,7 @@ let pflRole = message.guild.roles.find(`name`, "Pending FL Request");
   await msg2.react(`❌`);
   await msg2.react(bot.emojis.get("455268058643038208"))
 
-  message.author.addRole(pflRole.id);
+  user3.addRole(pflRole.id);
 
 
 
