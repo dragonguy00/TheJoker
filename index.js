@@ -68,7 +68,7 @@ let pflRole = message.guild.roles.find(`name`, "Pending FL Request");
     message.delete().catch(O_o=>{});
     return message.channel.send(`<@${user.id}>, you already have the Faction Leader role! Start requesting new members in ${recruitmentchannel}.`);
   }
-  else if(message.author.roles.find(`name`, "Pending FL Request")) {
+  else if(message.member.roles.find(`name`, "Pending FL Request")) {
     message.delete().catch(O_o=>{});
     return message.channel.send(`<@${user.id}>, you already have a pending faction leader role request! You will be notified when a decision has been made.`);
   }
