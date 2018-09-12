@@ -62,10 +62,15 @@ if (cmd === `${prefix}fleader`) {
 let recruitmentchannel = message.guild.channels.find(`name`, "faction-recruitment")
 let recruitmentRchannel = message.guild.channels.find(`name`, "faction-leader-requests")
 let fLeaderRole = message.guild.roles.find(`name`, "Faction Leader");
+let pflRole = message.guild.roles.find(`name`, "Pending FL Request");
 
   if(message.member.roles.find(`name`, "Faction Leader")) {
     message.delete().catch(O_o=>{});
     return message.channel.send(`<@${user.id}>, you already have the Faction Leader role! Start requesting new members in ${recruitmentchannel}.`);
+  }
+  else if(message.author.roles.find(`name`, "Pending FL Request")) {
+    message.delete().catch(O_o=>{});
+    return message.channel.send(`<@${user.id}>, you already have a pending faction leader role request! You will be notified when a decision has been made.`);
   }
   else {
   let ign = args[0];
@@ -104,6 +109,8 @@ let fLeaderRole = message.guild.roles.find(`name`, "Faction Leader");
   await msg2.react(`✅`);
   await msg2.react(`❌`);
   await msg2.react(bot.emojis.get("455268058643038208"))
+
+  message.author.addRole(pflRole.id);
 
 
 bot.on('messageReactionAdd', (reaction, user) => {
