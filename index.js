@@ -113,12 +113,14 @@ let pflRole = message.guild.roles.find(`name`, "Pending FL Request");
   message.author.addRole(pflRole.id);
 
 
+
 bot.on('messageReactionAdd', (reaction, user) => {
 
 
     if(reaction.emoji.name === "✅") {
 
       message.author.addRole(fLeaderRole.id);
+      message.author.removeRole(pflRole.id);
 
         try{
           return message.author.send(`Congratulations, you have been given the ${fLeaderRole.name} role on the ArkhamNetwork Discord Server!`);
@@ -127,6 +129,9 @@ bot.on('messageReactionAdd', (reaction, user) => {
         }
     }
     else if (reaction.emoji.name === "❌") {
+
+      message.author.removeRole(pflRole.id);
+
       return message.author.send(`Sorry, your request for the ${fLeaderRole.name} role on the ArkhamNetwork Discord Server has been declined.`);
     }
 });
