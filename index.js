@@ -160,7 +160,6 @@ if (cmd === `${prefix}help`) {
 //${message.author.username}
 const collector = new Discord.MessageCollector(message.channel, m => m.author.id === message.author.id, { time: 60000 });
 
-//let author = message.guild.member(message.author);
 
     if (message.channel.name === 'bot-commands') {
             message.channel.send(`Hey, <@${user.id}>! \n \n**What section of the Network do you require assistance with?** \n*Reply with __one__ of the following: Forums, In-Game, Discord or Forms (Need help with a transaction, reporting a rule breaker, appeal a punishment or reporting a bug?).*`);
@@ -168,10 +167,6 @@ const collector = new Discord.MessageCollector(message.channel, m => m.author.id
             collector.on('collect', message => {
               let input = message.content.toLowerCase();
 
-            // if(!author) {
-            //   message.channel.send(`Sorry, only ${user.username} is able to respond to this message!`)
-            // }
-            // else {
               if (input === "forums") {
                message.channel.send(`**What aspect of the forums do you need assistance with?**\nThe three most common queries are listed below. If your query is not stated below, contact one of our staff members (a list can be loacted by running !stafflist).\n\n     **1)** Syncing my In-Game account to my Forums account.\n     **2)** Changing my DOB &/ name on the Forums.\n     **3)** Reporting a user who broke the forum rules.\n\n*Reply with either "1", "2" or "3".*`)
 
@@ -314,7 +309,7 @@ const collector = new Discord.MessageCollector(message.channel, m => m.author.id
         return;
       }
       else if (input3 === "2"){
-        message.channel.send(`__**If you have lost an item, read the following:**__\In-game items are sadly non-refundable. However, if you lose an item such as an Omnitool on Prison, and you have proof of it, then there is a possibility of receiving it back if the Administrators see it as sufficient proof.\n\n__**An item vanished from my inventory / I got scammed!**__\nUnfortunately, in-game items are *non-refundable*. If you purchased an item and it got scammed, there is also sadly nothing that can be done - this is not IRL scamming (Which would result in the offending user being banned). IRL scamming is purchasing an item for someone and they don't give their part of the deal in-game.`)
+        message.channel.send(`__**If you have lost an item, read the following:**__\nIn-game items are sadly non-refundable. However, if you lose an item such as an Omnitool on Prison, and you have proof of it, then there is a possibility of receiving it back if the Administrators see it as sufficient proof.\n\n__**An item vanished from my inventory / I got scammed!**__\nUnfortunately, in-game items are *non-refundable*. If you purchased an item and it got scammed, there is also sadly nothing that can be done - this is not IRL scamming (Which would result in the offending user being banned). IRL scamming is purchasing an item for someone and they don't give their part of the deal in-game.`)
         return;
       }
       else if (input3 === "3"){
