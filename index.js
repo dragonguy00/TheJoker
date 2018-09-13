@@ -21,17 +21,17 @@ bot.on("message", async message => {
   let botchannel = message.guild.channels.find(`name`, "bot-commands")
   let user = message.guild.member(message.author);
 
-if (cmd === `${prefix}commands`) {
-
-    if (message.channel.name === 'bot-commands') {
-            message.channel.send(`Hey, <@${user.id}>! \n  \n __**All the commands available are:**__ \n **Test complete!** \n test`)
-            return;
-      }
-    else {
-        return message.channel.send(`Sorry, you can only use that command in ${botchannel}!`);
-      }
-
-}
+// if (cmd === `${prefix}commands`) {
+// 
+//     if (message.channel.name === 'bot-commands') {
+//             message.channel.send(`Hey, <@${user.id}>! \n  \n __**All the commands available for <@${bot.id}> are:**__ \n **Test complete!** \n test`)
+//             return;
+//       }
+//     else {
+//         return message.channel.send(`Sorry, you can only use that command in ${botchannel}!`);
+//       }
+//
+// }
 
 // if (cmd === `${prefix}addflrole`) {
 
