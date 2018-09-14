@@ -128,7 +128,7 @@ bot.on('messageReactionAdd', (reaction, user) => {
       user3.removeRole(pflRole.id);
       user3.addRole(fLeaderRole.id);
 
-      return message.author.send(`Congratulations, you have been given the ${fLeaderRole.name} role on the ArkhamNetwork Discord Server!`);
+      return user3.send(`Congratulations, you have been given the ${fLeaderRole.name} role on the ArkhamNetwork Discord Server!`);
         // try{
         //   return user3.send(`Congratulations, you have been given the ${fLeaderRole.name} role on the ArkhamNetwork Discord Server!`);
         // }catch(e){
@@ -139,7 +139,7 @@ bot.on('messageReactionAdd', (reaction, user) => {
 
       user3.removeRole(pflRole.id);
 
-      return message.author.send(`Sorry, your request for the ${fLeaderRole.name} role on the ArkhamNetwork Discord Server has been declined.`);
+      return user3.send(`Sorry, your request for the ${fLeaderRole.name} role on the ArkhamNetwork Discord Server has been declined.`);
     }
 });
 
