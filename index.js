@@ -22,7 +22,7 @@ bot.on("message", async message => {
   let user = message.guild.member(message.author);
 
 // if (cmd === `${prefix}commands`) {
-// 
+//
 //     if (message.channel.name === 'bot-commands') {
 //             message.channel.send(`Hey, <@${user.id}>! \n  \n __**All the commands available for <@${bot.id}> are:**__ \n **Test complete!** \n test`)
 //             return;
@@ -57,7 +57,7 @@ bot.on("message", async message => {
 
 if (cmd === `${prefix}fleader`) {
 
-//,fleader <IGN> <Faction> <Faction Disord>
+//<fleader <IGN> <Faction> <Faction Disord>
 
 let recruitmentchannel = message.guild.channels.find(`name`, "faction-recruitment")
 let recruitmentRchannel = message.guild.channels.find(`name`, "faction-leader-requests")
