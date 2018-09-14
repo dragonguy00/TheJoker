@@ -85,9 +85,8 @@ let pflRole = message.guild.roles.find(`name`, "Pending FL Request");
   return message.channel.send(`<@${message.author.id}>, you didn't state all the information required when submiting a Faction Leader Role request! Esure you follow the command: ${prefix}fleader <ign> <faction name> <faction discord>.`);
 
   let fDiscord = args[2];
-  if(!fDiscord){
-  const fDiscord = "Not Specified";
-}
+    if(!fDiscord) message.delete().catch(O_o=>{});
+  return message.channel.send(`<@${message.author.id}>, you didn't state all the information required when submiting a Faction Leader Role request! Esure you follow the command: ${prefix}fleader <ign> <faction name> <faction discord>.`);
 
   let user = message.guild.member(message.author);
 
