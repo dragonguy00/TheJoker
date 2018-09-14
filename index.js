@@ -125,12 +125,12 @@ bot.on('messageReactionAdd', (reaction, user) => {
       user3.removeRole(pflRole.id);
       user3.addRole(fLeaderRole.id);
 
-
-        try{
-          return user3.send(`Congratulations, you have been given the ${fLeaderRole.name} role on the ArkhamNetwork Discord Server!`);
-        }catch(e){
-          return botchannel.send(`Congrats to <@${user3.id}>, they have been given the role ${fLeaderRole.name}. We tried to DM them, but their DMs are locked.`);
-        }
+      return user3.send(`Congratulations, you have been given the ${fLeaderRole.name} role on the ArkhamNetwork Discord Server!`);
+        // try{
+        //   return user3.send(`Congratulations, you have been given the ${fLeaderRole.name} role on the ArkhamNetwork Discord Server!`);
+        // }catch(e){
+        //   return botchannel.send(`Congrats to <@${user3.id}>, they have been given the role ${fLeaderRole.name}. We tried to DM them, but their DMs are locked.`);
+        // }
     }
     else if (reaction.emoji.name === "❌") {
 
