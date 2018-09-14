@@ -65,6 +65,8 @@ let recruitmentRchannel = message.guild.channels.find(`name`, "faction-leader-re
 let fLeaderRole = message.guild.roles.find(`name`, "Faction Leader");
 let pflRole = message.guild.roles.find(`name`, "Pending FL Request");
 
+if (message.channel.name === 'bot-commands') {
+
   if(message.member.roles.find(`name`, "Faction Leader")) {
     message.delete().catch(O_o=>{});
     return message.channel.send(`<@${user.id}>, you already have the Faction Leader role! Start requesting new members in ${recruitmentchannel}.`);
@@ -154,6 +156,10 @@ bot.on('messageReactionRemove', (reaction, user) => {
 });
 
 }
+}
+else {
+  return message.channel.send(`Sorry, you can only use that command in ${botchannel}!`);
+  }
 }
 
 
