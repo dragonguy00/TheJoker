@@ -18,9 +18,10 @@ bot.on("message", async message => {
   let messageArray = message.content.split(" ");
   let cmd = messageArray[0];
   let args = messageArray.slice(1);
-  let botchannel = message.guild.channels.find(`name`, "bot-commands")
+  let botchannel = message.guild.channels.find(x => x.name === "bot-commands")
+  //let botchannel = message.guild.channels.find(`name`, "bot-commands")
   let user = message.guild.member(message.author);
-
+// x => x.name === "name"
 // if (cmd === `${prefix}commands`) {
 //
 //     if (message.channel.name === 'bot-commands') {
@@ -58,6 +59,7 @@ bot.on("message", async message => {
 if (cmd === `${prefix}fleader`) {
 
 //<fleader <IGN> <Faction> <Faction Disord>
+//x => x.name === "name"
 
 let recruitmentchannel = message.guild.channels.find(`name`, "faction-recruitment")
 let recruitmentRchannel = message.guild.channels.find(`name`, "faction-leader-requests")
