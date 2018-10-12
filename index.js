@@ -20,45 +20,10 @@ bot.on("message", async message => {
   let args = messageArray.slice(1);
   let botchannel = message.guild.channels.find(`name`, "bot-commands")
   let user = message.guild.member(message.author);
-// x => x.name === "name"
-// if (cmd === `${prefix}commands`) {
-//
-//     if (message.channel.name === 'bot-commands') {
-//             message.channel.send(`Hey, <@${user.id}>! \n  \n __**All the commands available for <@${bot.id}> are:**__ \n **Test complete!** \n test`)
-//             return;
-//       }
-//     else {
-//         return message.channel.send(`Sorry, you can only use that command in ${botchannel}!`);
-//       }
-//
-// }
-
-// if (cmd === `${prefix}addflrole`) {
-
-//   //,addflrole @user
-
-//   if(!message.member.hasPermission("MANAGE_ROLES")) return message.channel.send("Sorry, you can't do that.");
-//   let rMember = message.mentions.members.first() || message.guild.members.get(args[0]);
-//   if(!rMember) return message.channel.send("Sorry, that user doesn't exist!");
-//   // let frole = args.slice(1).join(" ");
-//   // if(!frole) return message.channel.send("Sorry, you didn't specify a role!");
-//   let fLeaderRole = message.guild.roles.find(`name`, "Faction Leader");
-//   if(!fLeaderRole) return message.channel.send("Couldn't find that role.");
-
-//   if(rMember.roles.has(fLeaderRole.id)) return message.channel.send(`Sorry, <@${rMember.user.id}> already has that role!`);
-//   await(rMember.addRole(fLeaderRole.id));
-
-//     try{
-//       await rMember.send(`Congratulations, you have been given the ${fLeaderRole.name} role on the ArkhamNetwork Discord Server!`)
-//     }catch(e){
-//       botchannel.send(`Congrats to <@${rMember.id}>, they have been given the role ${fLeaderRole.name}. We tried to DM them, but their DMs are locked.`)
-//     }
-// }
 
 if (cmd === `${prefix}fleader`) {
 
   //<fleader <IGN> <Faction> <Faction Disord>
-  //x => x.name === "name"
 
   let recruitmentchannel = message.guild.channels.find(`name`, "faction-recruitment")
   let recruitmentRchannel = message.guild.channels.find(`name`, "faction-leader-requests")
