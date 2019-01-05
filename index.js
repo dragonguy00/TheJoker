@@ -368,4 +368,21 @@ const collector = new Discord.MessageCollector(message.channel, m => m.author.id
 
 });
 
+bot.on("guildMemberAdd", (member) => {
+let guild = member.guild;
+let dInfo = guild.channels.find(`name`, "discord-information");
+let dRules = guild.channels.find(`name`, "discord-rules");
+let welcomeCnl = guild.channels.find(`name`, "welcome")
+
+if(guild.systemChannel){
+	welcomeCnl.send(new Discord.RichEmbed()
+	.setColor("#55ffee")
+  .setTitle(`Welcome to **Arkham's Discord**, ${member.user.username}!`)
+	.setDescription(`Enjoy your stay, ${member.user}! \n\n ↠ IP: arkhamnetwork.org \n ↠ Website: https://arkhamnetwork.org \n ↠ Store: https://buy.arkhamnetwork.org \n\n ↠ Discord Info: ${dInfo} \n ↠ Discord Rules: ${dRules}`)
+	.setThumbnail(`https://i.imgur.com/Kv9ZcHX.png`)
+  .setTimestamp()
+  .setFooter(`Total Users: ${member.guild.memberCount}`));
+  }
+});
+
 bot.login(token);
